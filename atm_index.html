@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced ATM</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="atm-machine">
+        <div class="atm-screen">
+            <!-- Login Screen -->
+            <div id="login-screen" class="screen">
+                <h2>Welcome to Advanced Bank</h2>
+                <p>Please enter your PIN:</p>
+                <div class="pin-display" id="pin-display">____</div>
+                <div class="message" id="login-message"></div>
+            </div>
+            
+            <!-- Main Menu -->
+            <div id="menu-screen" class="screen hidden">
+                <h2>What would you like to do?</h2>
+                <div class="menu">
+                    <button class="menu-btn" data-action="balance">Check Balance</button>
+                    <button class="menu-btn" data-action="withdraw">Withdraw Money</button>
+                    <button class="menu-btn" data-action="deposit">Deposit Money</button>
+                    <button class="menu-btn" data-action="change-pin">Change PIN</button>
+                    <button class="menu-btn" data-action="exit">Exit</button>
+                </div>
+            </div>
+            
+            <!-- Balance Screen -->
+            <div id="balance-screen" class="screen hidden">
+                <h2>Your Account Balance</h2>
+                <div class="balance-amount" id="current-balance">$1,250.00</div>
+                <div class="transaction-history">
+                    <h3>Recent Transactions</h3>
+                    <div id="transaction-list"></div>
+                </div>
+                <div class="options">
+                    <button id="back-from-balance" class="action-btn">Back to Menu</button>
+                </div>
+            </div>
+            
+            <!-- Withdraw Screen -->
+            <div id="withdraw-screen" class="screen hidden">
+                <h2>Withdraw Money</h2>
+                <p>How much would you like to withdraw?</p>
+                <div class="amount-display" id="amount-display">$0</div>
+                <div class="quick-amounts">
+                    <button class="quick-amount" data-amount="20">$20</button>
+                    <button class="quick-amount" data-amount="40">$40</button>
+                    <button class="quick-amount" data-amount="60">$60</button>
+                    <button class="quick-amount" data-amount="100">$100</button>
+                </div>
+                <div class="options">
+                    <button id="confirm-withdraw" class="action-btn">Withdraw</button>
+                    <button id="cancel-withdraw" class="action-btn cancel">Cancel</button>
+                </div>
+            </div>
+            
+            <!-- Deposit Screen -->
+            <div id="deposit-screen" class="screen hidden">
+                <h2>Deposit Money</h2>
+                <p>How much would you like to deposit?</p>
+                <div class="amount-display" id="deposit-amount-display">$0</div>
+                <div class="options">
+                    <button id="confirm-deposit" class="action-btn">Deposit</button>
+                    <button id="cancel-deposit" class="action-btn cancel">Cancel</button>
+                </div>
+            </div>
+            
+            <!-- Change PIN Screen -->
+            <div id="change-pin-screen" class="screen hidden">
+                <h2>Change Your PIN</h2>
+                <p>Enter your new 4-digit PIN:</p>
+                <div class="pin-display" id="new-pin-display">____</div>
+                <div class="message" id="pin-message"></div>
+                <div class="options">
+                    <button id="confirm-pin-change" class="action-btn">Change PIN</button>
+                    <button id="cancel-pin-change" class="action-btn cancel">Cancel</button>
+                </div>
+            </div>
+            
+            <!-- Receipt Screen -->
+            <div id="receipt-screen" class="screen hidden">
+                <h2>Transaction Complete</h2>
+                <div class="receipt">
+                    <div class="receipt-header">ADVANCED BANK</div>
+                    <div class="receipt-line">Date: <span id="receipt-date"></span></div>
+                    <div class="receipt-line">Time: <span id="receipt-time"></span></div>
+                    <div class="receipt-line">Transaction: <span id="receipt-type"></span></div>
+                    <div class="receipt-line">Amount: <span id="receipt-amount"></span></div>
+                    <div class="receipt-line">New Balance: <span id="receipt-balance"></span></div>
+                    <div class="receipt-footer">Thank you for banking with us!</div>
+                </div>
+                <div class="options">
+                    <button id="done-btn" class="action-btn">Done</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="atm-keypad">
+            <div class="key-row">
+                <button class="key" data-number="1">1</button>
+                <button class="key" data-number="2">2</button>
+                <button class="key" data-number="3">3</button>
+            </div>
+            <div class="key-row">
+                <button class="key" data-number="4">4</button>
+                <button class="key" data-number="5">5</button>
+                <button class="key" data-number="6">6</button>
+            </div>
+            <div class="key-row">
+                <button class="key" data-number="7">7</button>
+                <button class="key" data-number="8">8</button>
+                <button class="key" data-number="9">9</button>
+            </div>
+            <div class="key-row">
+                <button class="key special" id="clear-btn">Clear</button>
+                <button class="key" data-number="0">0</button>
+                <button class="key special" id="enter-btn">Enter</button>
+            </div>
+        </div>
+        
+        <div class="atm-footer">
+            <p>Piggy Bank - Not so Secure Banking</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
